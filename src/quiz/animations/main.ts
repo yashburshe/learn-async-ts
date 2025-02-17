@@ -13,24 +13,31 @@ const alice10 = document.querySelector<HTMLElement>("#alice1");
 const alice20 = document.querySelector<HTMLElement>("#alice2");
 const alice30 = document.querySelector<HTMLElement>("#alice3");
 
-if(alice10 && alice20 && alice30) {
-  // Promise chain  
-  alice10.animate(aliceTumbling1, aliceTiming1).finished  
-    .then(() => {
-        return alice20
-                .animate(aliceTumbling1, aliceTiming1)
-                .finished;     
-    })
-    .then(() => {
-      return alice30
-              .animate(aliceTumbling1, aliceTiming1)
-              .finished;
-    })
-    .catch((err) => alert(`Error when promising ... ${err.message}`));
+async function animate(): Promise<void> {
+  try {
+    if (alice10) {
+      await alice10?.animate(aliceTumbling1, aliceTiming1).finished;
+    } else {
+      throw new Error("#alice10 not found");
+    }
+
+    if (alice20) {
+      await alice20?.animate(aliceTumbling1, aliceTiming1).finished;
+    } else {
+      throw new Error("#alice20 not found");
+    }
+
+    if (alice30) {
+      await alice30?.animate(aliceTumbling1, aliceTiming1).finished;
+    } else {
+      throw new Error("#alice30 not found");
+    }
+  } catch (err) {
+    alert(`Error when awaiting ... ${err}`);
+  }
 }
-else{
-  console.warn("#alice not found");
-}
+
+animate();
 
 // alice10
 //     .animate(aliceTumbling1, aliceTiming1)
