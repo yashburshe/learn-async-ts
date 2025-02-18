@@ -15,7 +15,7 @@ setTimeout function, the promise is returned and then the calculation is done.
 
 --
 
-The fetch() api is based on a network call so it is always asynchronous so it has to wait for the
+The fetch() api is based on a network call so it is always asynchronous as it has to wait for the
 network call to finish before resolving a promise so it always sends back a pending promise in its return.
 It is similar to how the flow of execution is when setTimeout is used.
 
