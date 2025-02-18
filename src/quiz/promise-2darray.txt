@@ -24,5 +24,5 @@ It is similar to how the flow of execution is when setTimeout is used.
 The setTimeout code emulates a delay similar to that of the time required to make the network call
 and resolve it. Hence it is similar in the sense that it runs asynchronously but can be different depending
 on the amount of time a network request can take as that can vary a lot unlike the setTimeout which is
-fixed for the given amoutn of time.
+fixed for the given amount of time.
 
